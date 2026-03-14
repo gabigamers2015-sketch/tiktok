@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Regalos TikTok</title>
+    <!-- Importar fuentes desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Configuraciones generales para OBS */
+        body {
+            margin: 0;
+            padding: 10px;
+            width: 240px; /* Ancho estricto solicitado */
+            box-sizing: border-box;
+            background-color: transparent; /* Fondo transparente para OBS */
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ocultar barra de desplazamiento */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Título Principal Animado */
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
+            text-align: center;
+            margin: 5px 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ff007f, #9d00ff, #00ffff, #ff007f);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s linear infinite;
+            filter: drop-shadow(0px 0px 8px rgba(157, 0, 255, 0.5));
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Separadores de Sección */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            color: #ffffff;
+            text-align: center;
+            margin: 15px 0 10px 0;
+            letter-spacing: 3px;
+            position: relative;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            opacity: 0.8;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 15%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .section-title::before { left: 5px; }
+        .section-title::after { right: 5px; }
+
+        /* Contenedor de la Card */
+        .gift-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            background: rgba(10, 10, 15, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1.5px solid var(--neon-color);
+            animation: pulseGlow 2s infinite alternate;
+            transition: transform 0.2s;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 4px var(--neon-color), inset 0 0 2px var(--neon-color); }
+            100% { box-shadow: 0 0 12px var(--neon-color), inset 0 0 6px var(--neon-color); }
+        }
+
+        /* Imagen del Regalo */
+        .gift-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+        }
+
+        /* Detalles del Regalo */
+        .gift-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .gift-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gift-effect {
+            font-size: 13px;
+            font-weight: 600;
+            margin: 2px 0;
+        }
+
+        .gift-price {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffd700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .coin-img {
+            width: 14px;
+            height: 14px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-title">🎁 REGALOS</div>
+    
+    <div id="menu-container">
+        <!-- Generado por JS -->
+    </div>
+
+    <script>
+        // URLs verificadas de los assets de TikTok (estáticas)
+        const giftsData = [
+            // PEQUEÑOS
+            { category: "PEQUEÑOS", name: "Rose", cost: 1, effect: "+20 MASA", color: "#ff3366", img: "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/eba937c4ec261b0d2d319e75ebbf02a8~tplv-obj.png", effectColor: "#ff99cc" },
+            { category: "PEQUEÑOS", name: "TikTok", cost: 1, effect: "ALIADO", color: "#00f2fe", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/7d921f005fa9194e9f9024c0f8faea07~tplv-obj.png", effectColor: "#00f2fe" },
+            { category: "PEQUEÑOS", name: "Finger Heart", cost: 5, effect: "TURBO 5s", color: "#ff66b2", img: "https://p19-webcast.tiktokcdn.com/img/maliva/webcast-va/52f67de45bb16e846059da1bd35e07a3~tplv-obj.png", effectColor: "#ffcc00" },
+            { category: "PEQUEÑOS", name: "Rosa", cost: 10, effect: "+30 MASA", color: "#ff007f", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1e26122d4f20b4112e7534c03b1cc11a~tplv-obj.png", effectColor: "#ff66cc" },
+            { category: "PEQUEÑOS", name: "Perfume", cost: 20, effect: "BOMBA", color: "#b266ff", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4e29780bd4eb44186419ca6644f1246c~tplv-obj.png", effectColor: "#ff3300" },
+            { category: "PEQUEÑOS", name: "Ice Cream", cost: 1, effect: "+40 MASA", color: "#66ccff", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/38bd01844b2f155f9ce13f274a2bd8ba~tplv-obj.png", effectColor: "#99ffcc" },
+            { category: "PEQUEÑOS", name: "Panda", cost: 1, effect: "+15 MASA", color: "#ffffff", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/dfc6a992bb166ab80a8df755c3c06155~tplv-obj.png", effectColor: "#ffffff" },
+            
+            // MEDIANOS
+            { category: "MEDIANOS", name: "Sunglasses", cost: 199, effect: "TURBO 6s", color: "#ffcc00", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/24d32e92c695bf1df83ed3c1bbf9161a~tplv-obj.png", effectColor: "#ffcc00" },
+            { category: "MEDIANOS", name: "Bear Love", cost: 100, effect: "ESCUDO 6s", color: "#ff9966", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/70f2d4e84b80e8ffdece3550e503387d~tplv-obj.png", effectColor: "#66ccff" },
+            { category: "MEDIANOS", name: "Corona", cost: 499, effect: "SUPER PODER", color: "#ffd700", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d86c5f7e7f6ef6de427a13c59de3c46e~tplv-obj.png", effectColor: "#ff3300" },
+            
+            // GRANDES
+            { category: "GRANDES", name: "Diamond", cost: 1000, effect: "BOMBA TOTAL", color: "#00ffff", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/61b78ee2c2e0b5de280628e83be6d649~tplv-obj.png", effectColor: "#ff0055" },
+            { category: "GRANDES", name: "Lion", cost: 29999, effect: "SUPER TOTAL", color: "#ffaa00", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4eb482eb428e578fa62bb381aeb9782d~tplv-obj.png", effectColor: "#ffff00" },
+            { category: "GRANDES", name: "Universe", cost: 34999, effect: "BOMBA TOTAL", color: "#9d00ff", img: "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d089e5a1b5b542c3a3dd73dd23b497c2~tplv-obj.png", effectColor: "#ff00ff" }
+        ];
+
+        const container = document.getElementById('menu-container');
+        const coinImgUrl = "https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/1066746860368814080~tplv-obj.png";
+
+        let currentCategory = "";
+
+        giftsData.forEach(gift => {
+            if (gift.category !== currentCategory) {
+                const section = document.createElement('div');
+                section.className = 'section-title';
+                section.textContent = gift.category;
+                container.appendChild(section);
+                currentCategory = gift.category;
+            }
+
+            const card = document.createElement('div');
+            card.className = 'gift-card';
+            card.style.setProperty('--neon-color', gift.color);
+
+            card.innerHTML = `
+                <img src="${gift.img}" class="gift-img" alt="${gift.name}">
+                <div class="gift-info">
+                    <div class="gift-name">${gift.name}</div>
+                    <div class="gift-effect" style="color: ${gift.effectColor}; text-shadow: 0 0 5px ${gift.effectColor}aa;">
+                        ⚡ ${gift.effect}
+                    </div>
+                    <div class="gift-price">
+                        <img src="${coinImgUrl}" class="coin-img">
+                        ${gift.cost.toLocaleString()}
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
